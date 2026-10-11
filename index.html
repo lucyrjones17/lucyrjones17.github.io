@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forensics Test Store</title>
+</head>
+<body>
+    <h1>Welcome to Forensics Test Store</h1>
+
+    <p>This is a demonstration website for our
+       Digital Forensics Web Analytics assignment.</p>
+
+    <h2>Our Products</h2>
+
+    <p>Product 1: Laptop - $1000</p>
+    <button onclick="trackProductClick('Laptop')">
+        View Laptop
+    </button>
+
+    <p>Product 2: Headphones - $150</p>
+    <button onclick="trackProductClick('Headphones')">
+        View Headphones
+    </button>
+
+    <h2>Newsletter</h2>
+    <button onclick="trackSignup()">
+        Sign Up
+    </button>
+
+    <script>
+        function trackProductClick(product) {
+            if (typeof gtag === 'function') {
+                gtag('event', 'view_product', {
+                    product_name: product
+                });
+            }
+            alert('You selected ' + product);
+        }
+
+        function trackSignup() {
+            if (typeof gtag === 'function') {
+                gtag('event', 'click_button', {
+                    button_name: 'newsletter_signup'
+                });
+            }
+            alert('Demo signup completed!');
+        }
+    </script>
+</body>
+</html>
